@@ -1,12 +1,77 @@
-<!-- myapp/templates/hello_world.html -->
+<!-- your_app_name/templates/bsts.html -->
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Hello, World!</title>
+    <meta charset="UTF-8">
+    <!-- ... (add your head content if needed) ... -->
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f4f4f4;
+            font-family: 'Arial', sans-serif;
+        }
+
+        h1 {
+            font-size: 36px;
+            margin-bottom: 30px;
+            color: #3498db;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        input[type="file"] {
+            margin-bottom: 10px;
+            padding: 10px;
+            border: 1px solid #3498db;
+            border-radius: 5px;
+        }
+
+        .button {
+            font-size: 20px;
+            padding: 15px 30px;
+            margin: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            background-color: #3498db;
+            color: #fff;
+            transition: background-color 0.3s;
+        }
+
+        .button:hover {
+            background-color: #2980b9;
+        }
+
+        #results {
+            margin-top: 20px;
+            max-width: 600px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+    </style>
 </head>
 <body>
-    <div style="text-align: center; margin-top: 50px;">
-        <h1>Bayesian Structure Time Series Model</h1>
-    </div>
+    <h1>Counter Factual Analysis (BSTS)</h1>
+
+    <!-- File Upload Form -->
+    <form action="{% url 'analyse' %}" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <input type="file" name="file" accept=".csv" required>
+        <button class="button" type="submit">Upload Dataset</button>
+    </form>
+   
 </body>
 </html>
